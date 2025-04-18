@@ -81,10 +81,6 @@ app.post('/send-email', upload.single('image'), async (req, res) => {
     }
 });
 
-app.get('/home', (req, res) => {
-    res.send('Hello World!')
-})
-
 // API to Generate & Download Invoice
 app.post("/download-invoice", async (req, res) => {
     try {
