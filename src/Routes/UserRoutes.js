@@ -8,10 +8,10 @@ router.post('/register', userRegister);
 //User Login
 router.post('/login', userLogin);
 //Change Password
-router.put('/change-password', authorization, changeUserPassword);
+router.put('/change-password', changeUserPassword);
 //get all users
 //Protected Route
-router.get('/auth/verify', authorization, (req, res) => {
+router.get('/auth/verify', (req, res) => {
     res.json({ success: true, message: "Token is valid" });
 });
 
