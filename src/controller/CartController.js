@@ -5,6 +5,7 @@ const { errorResponse, successResponse } = require('../utils/apiResponse');
 const { status } = require('http-status');
 const { getCloudinaryPublicId, destroyImage } = require("../utils/upload");
 
+//add product to cart
 exports.addToCart = async (req, res) => {
     try {
         const details = JSON.parse(req.body.details);
@@ -115,6 +116,7 @@ exports.decreaseQuantity = async (req, res) => {
     }
 };
 
+//remove item from cart
 exports.removeItem = async (req, res) => {
     try {
         const removedItem = await cartService.removeItem(req.params.id);
@@ -125,5 +127,14 @@ exports.removeItem = async (req, res) => {
         return successResponse(req, res, status.OK, "Item removed successfully");
     } catch (error) {
         return errorResponse(req, res, status.INTERNAL_SERVER_ERROR, error.message);
+    }
+};
+
+//upload image 
+exports.uplaodImage = async (req, res) => {
+    try {
+        return successResponse(req, res, status.CREATED, "Item added to cart", req.file.path);
+    } catch (error) {
+        return errorResponse(req, res, status.INTERNAL_SERVER_ERROR, "Error adding item to cart", error.message);
     }
 };
