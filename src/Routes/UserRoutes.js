@@ -9,7 +9,6 @@ router.post('/register', userRegister);
 router.post('/login', userLogin);
 //Change Password
 router.put('/change-password', changeUserPassword);
-//get all users
 //Protected Route
 router.get('/auth/verify', (req, res) => {
     res.json({ success: true, message: "Token is valid" });
