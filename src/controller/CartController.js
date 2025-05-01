@@ -133,7 +133,7 @@ exports.removeItem = async (req, res) => {
 //upload image 
 exports.uplaodImage = async (req, res) => {
     try {
-        return successResponse(req, res, status.CREATED, "Item added to cart", req.file.path);
+        return successResponse(req, res, status.CREATED, "Image Uploaded !", req.file.path);
     } catch (error) {
         return errorResponse(req, res, status.INTERNAL_SERVER_ERROR, "Error adding item to cart", error.message);
     }

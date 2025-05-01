@@ -10,7 +10,7 @@ router.post('/login', userLogin);
 //Change Password
 router.put('/change-password', changeUserPassword);
 //Protected Route
-router.get('/auth/verify', (req, res) => {
+router.get('/auth/verify', authorization, (req, res) => {
     res.json({ success: true, message: "Token is valid" });
 });
 
